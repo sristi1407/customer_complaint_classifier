@@ -1,0 +1,24 @@
+                                                                              precision    recall  f1-score   support
+
+                                                     Bank account or service       1.00      1.00      1.00     17241
+                                                 Checking or savings account       1.00      0.99      1.00      8128
+                                                               Consumer Loan       0.95      0.98      0.96      6321
+                                                                 Credit card       0.94      1.00      0.97     17838
+                                                 Credit card or prepaid card       0.99      0.95      0.97      9530
+                                                            Credit reporting       1.00      1.00      1.00     28086
+Credit reporting, credit repair services, or other personal consumer reports       0.97      1.00      0.98     45196
+                                                             Debt collection       1.00      1.00      1.00     48975
+                          Money transfer, virtual currency, or money service       0.67      0.93      0.78      2033
+                                                             Money transfers       0.88      0.46      0.61      1071
+                                                                    Mortgage       1.00      0.98      0.99     55620
+                                                     Other financial service       0.87      0.23      0.36       212
+                                                                 Payday loan       0.91      1.00      0.95      1109
+                                   Payday loan, title loan, or personal loan       1.00      0.94      0.97      1732
+                                                                Prepaid card       1.00      0.80      0.89       764
+                                                                Student loan       1.00      0.94      0.97     10337
+                                                       Vehicle loan or lease       1.00      0.84      0.92      2275
+                                                            Virtual currency       0.00      0.00      0.00         3
+
+                                                                    accuracy                           0.98    256471
+                                                                   macro avg       0.90      0.84      0.85    256471
+                                                                weighted avg       0.99      0.98      0.98    256471

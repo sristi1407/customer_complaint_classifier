@@ -1,0 +1,2 @@
+model,train_accuracy,test_accuracy,train_balanced_accuracy,test_balanced_accuracy,train_weighted_f1,test_weighted_f1,test_macro_f1
+LinearSVC,0.9847123089038613,0.98395,0.8741777689899731,0.8626757391073947,0.9842378468688134,0.9832945424858668,0.8704027138921743
