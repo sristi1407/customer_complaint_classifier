@@ -1,0 +1,66 @@
+Decision Tree Accuracy: 0.9777440724292416
+
+Classification Report:
+                                                                              precision    recall  f1-score   support
+
+                                                     Bank account or service       1.00      1.00      1.00     17241
+                                                 Checking or savings account       0.98      0.94      0.96      8128
+                                                               Consumer Loan       0.95      0.98      0.96      6321
+                                                                 Credit card       0.94      1.00      0.97     17838
+                                                 Credit card or prepaid card       0.95      0.93      0.94      9530
+                                                            Credit reporting       0.98      1.00      0.99     28086
+Credit reporting, credit repair services, or other personal consumer reports       0.97      0.99      0.98     45196
+                                                             Debt collection       1.00      1.00      1.00     48975
+                          Money transfer, virtual currency, or money service       0.67      0.93      0.78      2033
+                                                             Money transfers       0.88      0.46      0.61      1071
+                                                                    Mortgage       1.00      0.98      0.99     55620
+                                                     Other financial service       0.83      0.17      0.28       212
+                                                                 Payday loan       0.63      1.00      0.77      1109
+                                   Payday loan, title loan, or personal loan       0.96      0.63      0.76      1732
+                                                                Prepaid card       1.00      0.80      0.89       764
+                                                                Student loan       1.00      0.94      0.97     10337
+                                                       Vehicle loan or lease       1.00      0.84      0.92      2275
+                                                            Virtual currency       0.00      0.00      0.00         3
+
+                                                                    accuracy                           0.98    256471
+                                                                   macro avg       0.87      0.81      0.82    256471
+                                                                weighted avg       0.98      0.98      0.98    256471
+
+
+Confusion Matrix:
+[[17241     0     0     0     0     0     0     0     0     0     0     0
+      0     0     0     0     0     0]
+ [    0  7644     0     0   418     2    64     0     0     0     0     0
+      0     0     0     0     0     0]
+ [    0     0  6207     0     0     0     0     0     0     0     0     0
+    114     0     0     0     0     0]
+ [    0     0     0 17838     0     0     0     0     0     0     0     0
+      0     0     0     0     0     0]
+ [    0   195     0     0  8837     8   490     0     0     0     0     0
+      0     0     0     0     0     0]
+ [    0     0     0     0     0 28086     0     0     0     0     0     0
+      0     0     0     0     0     0]
+ [    0     0     0     0    23   493 44560     0   111     0     1     7
+      0     1     0     0     0     0]
+ [    0     0     0     0     0     0     0 48975     0     0     0     0
+      0     0     0     0     0     0]
+ [    0     0     0     0    52     0    16     0  1899    64     0     0
+      0     0     2     0     0     0]
+ [    0     0     0     0     0     0     0     0   573   498     0     0
+      0     0     0     0     0     0]
+ [    0     0     0  1113     0     0     1     0     0     0 54506     0
+      0     0     0     0     0     0]
+ [    0     0     0    61    13     0     0     0   103     0     0    35
+      0     0     0     0     0     0]
+ [    0     0     0     0     0     0     0     0     0     0     0     0
+   1109     0     0     0     0     0]
+ [    0     0     0     0     0     1    97     0     0     0     0     0
+    545  1089     0     0     0     0]
+ [    0     0     0     1     0     0     0     0   151     0     0     0
+      0     0   612     0     0     0]
+ [    0     0   338     0     0     1   250     0     0     0     0     0
+      0    40     0  9708     0     0]
+ [    0     0     0     0     0     7   349     0     0     0     0     0
+      0     0     0     0  1919     0]
+ [    0     0     0     0     0     0     0     0     0     3     0     0
+      0     0     0     0     0     0]]
