@@ -84,15 +84,6 @@ COLORS = {
     "light_bg": "#f0f2f6",
 }
 
-# Confidence threshold colors
-def confidence_color(confidence: float) -> str:
-    """Return hex color based on confidence level."""
-    if confidence >= CONFIDENCE_THRESHOLD_HIGH:
-        return COLORS["success"]
-    if confidence >= CONFIDENCE_THRESHOLD_MEDIUM:
-        return COLORS["warning"]
-    return COLORS["danger"]
-
 # ---------------------------------------------------------------------------
 # Input validation
 # ---------------------------------------------------------------------------

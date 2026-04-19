@@ -93,21 +93,35 @@ def load_all_metrics() -> pd.DataFrame:
             pass
 
     # ------------------------------------------------------------------
-    # 2. Dev's CSV — SVM
+    # 2. Dev's CSV + classification report — SVM
     # ------------------------------------------------------------------
     svm_path = RESULTS_PATHS["svm_csv"]
+    svm_report_path = RESULTS_PATHS["svm_report"]
     if os.path.exists(svm_path):
         try:
             svm_df = pd.read_csv(svm_path)
+            # Try to extract precision/recall from the classification report text
+            svm_precision, svm_recall = None, None
+            if os.path.exists(svm_report_path):
+                with open(svm_report_path, "r") as fh:
+                    svm_report_text = fh.read()
+                wm = _parse_weighted_metrics(svm_report_text)
+                svm_precision = wm.get("precision")
+                svm_recall = wm.get("recall")
+
             for _, row in svm_df.iterrows():
+                accuracy = float(row.get("test_accuracy", 0))
+                f1 = float(row.get("test_weighted_f1", 0))
                 rows.append(
                     {
                         "Model": "Support Vector Machine (SVM)",
                         "Model Key": "svm",
-                        "Accuracy": float(row.get("test_accuracy", 0)),
-                        "Precision": float(row.get("test_weighted_f1", 0)),
-                        "Recall": float(row.get("test_accuracy", 0)),
-                        "F1-Score": float(row.get("test_weighted_f1", 0)),
+                        "Accuracy": accuracy,
+                        # Use values from classification report if available,
+                        # otherwise fall back to the closest available metric.
+                        "Precision": svm_precision if svm_precision is not None else f1,
+                        "Recall": svm_recall if svm_recall is not None else accuracy,
+                        "F1-Score": f1,
                     }
                 )
         except Exception:  # noqa: BLE001

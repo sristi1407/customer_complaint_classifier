@@ -9,7 +9,7 @@ MODEL_EXPLANATIONS = {
         ),
         "strength": "Provides a reference point for comparing all other models.",
         "weakness": (
-            "Does not analyse complaint text at all; accuracy is often very low "
+            "Does not analyze complaint text at all; accuracy is often very low "
             "because it always predicts the same class."
         ),
     },

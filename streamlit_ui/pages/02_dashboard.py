@@ -193,7 +193,7 @@ def run():
     # Format as percentages for readability
     for m in selected_metrics:
         if m in display_df.columns:
-            display_df[m] = display_df[m].map(lambda v: f"{v:.2%}")  # noqa: B023
+            display_df[m] = display_df[m].map(lambda v, _m=m: f"{v:.2%}")
 
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True, hide_index=True)
 
