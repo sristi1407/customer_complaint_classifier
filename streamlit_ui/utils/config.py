@@ -23,6 +23,10 @@ RESULTS_PATHS = {
     "svm_report": os.path.join(_BASE_DIR, "results", "Dev", "svm_classification_report.txt"),
 }
 
+PREPROCESSED_DATA_PATH = os.path.join(
+    _BASE_DIR, "data", "preprocess_data", "complaints_cleaned.csv"
+)
+
 ASSETS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets")
 
 # ---------------------------------------------------------------------------
@@ -47,6 +51,25 @@ MODEL_HAS_PIPELINE = {
 
 # Models whose vectorizers are unavailable (predictions require the original vectorizer)
 MODELS_NEED_VECTORIZER = {"naive_bayes", "decision_tree", "random_forest"}
+
+# Rebuild settings for vectorizers that were not serialized with model artifacts.
+VECTORIZER_CONFIGS = {
+    "naive_bayes": {
+        "max_features": 10000,
+        "stop_words": "english",
+        "ngram_range": (1, 2),
+    },
+    "decision_tree": {
+        "max_features": 5000,
+        "stop_words": "english",
+        "ngram_range": (1, 1),
+    },
+    "random_forest": {
+        "max_features": 5000,
+        "stop_words": "english",
+        "ngram_range": (1, 1),
+    },
+}
 
 # ---------------------------------------------------------------------------
 # 18 Financial Product Categories (from CFPB dataset / baseline model classes)

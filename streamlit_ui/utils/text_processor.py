@@ -1,7 +1,6 @@
 """Text preprocessing utilities for the Customer Complaint Classifier UI."""
 
 import re
-import string
 
 import numpy as np
 
@@ -106,6 +105,23 @@ def predict_svm_pipeline(model, text: str) -> tuple[str, np.ndarray]:
     prediction = model.predict([text])[0]
     scores = model.decision_function([text])[0]
     proba = _softmax(scores)
+    return prediction, proba
+
+
+def predict_with_external_vectorizer(model, vectorizer, text: str) -> tuple[str, np.ndarray]:
+    """Predict using a standalone model + externally prepared TF-IDF vectorizer."""
+    processed_text = clean_text(text)
+    features = vectorizer.transform([processed_text])
+    prediction = model.predict(features)[0]
+
+    if hasattr(model, "predict_proba"):
+        proba = model.predict_proba(features)[0]
+    elif hasattr(model, "decision_function"):
+        scores = model.decision_function(features)[0]
+        proba = _softmax(np.asarray(scores))
+    else:
+        proba = np.ones(len(model.classes_)) / len(model.classes_)
+
     return prediction, proba
 
 

@@ -7,7 +7,6 @@ import json
 import os
 import sys
 
-import numpy as np
 import streamlit as st
 
 # Ensure the streamlit_ui directory is on the path so relative imports work
@@ -32,10 +31,11 @@ from utils.helpers import (
     sort_predictions,
     validate_input,
 )
-from utils.model_loader import load_all_models
+from utils.model_loader import load_all_models, load_required_vectorizers
 from utils.text_processor import (
     get_preprocessing_info,
     predict_baseline,
+    predict_with_external_vectorizer,
     predict_svm_pipeline,
 )
 from utils.visualizations import top5_bar
@@ -69,7 +69,7 @@ def _load_samples() -> list[dict]:
         return []
 
 
-def _predict_model(key: str, model, text: str) -> dict:
+def _predict_model(key: str, model, text: str, vectorizers: dict | None = None) -> dict:
     """Run prediction for a single model.
 
     Returns
@@ -93,17 +93,21 @@ def _predict_model(key: str, model, text: str) -> dict:
             pred, proba = predict_svm_pipeline(model, text)
             classes = list(model.classes_)
         elif key in MODELS_NEED_VECTORIZER:
-            return {
-                "success": False,
-                "prediction": None,
-                "confidence": None,
-                "top5": None,
-                "error": (
-                    "⚠️ **Vectorizer not saved** — this model requires its original "
-                    "TF-IDF vectorizer to make live predictions.  "
-                    "See the **Dashboard** page for its historical performance."
-                ),
-            }
+            vectorizer = (vectorizers or {}).get(key)
+            if vectorizer is None:
+                return {
+                    "success": False,
+                    "prediction": None,
+                    "confidence": None,
+                    "top5": None,
+                    "error": (
+                        "⚠️ Vectorizer could not be prepared for this model. "
+                        "Check the preprocessed dataset path and required columns."
+                    ),
+                }
+
+            pred, proba = predict_with_external_vectorizer(model, vectorizer, text)
+            classes = list(model.classes_)
         else:
             return {
                 "success": False, "prediction": None, "confidence": None,
@@ -293,6 +297,7 @@ def run():
 
     # Load models once (cached)
     models = load_all_models()
+    vectorizers = load_required_vectorizers()
     samples = _load_samples()
 
     # -----------------------------------------------------------------------
@@ -370,8 +375,10 @@ def run():
             st.subheader("🔮 Prediction Results")
 
             with st.spinner("Running predictions on all models…"):
-                all_results = {key: _predict_model(key, models.get(key), complaint_text)
-                               for key in MODELS}
+                all_results = {
+                    key: _predict_model(key, models.get(key), complaint_text, vectorizers)
+                    for key in MODELS
+                }
 
             # Display model cards in a 2-column grid
             model_keys = list(MODELS.keys())

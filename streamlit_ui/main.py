@@ -67,15 +67,14 @@ st.markdown(
     | Model | Type | Live Predictions |
     |-------|------|-----------------|
     | 📊 Baseline (Majority Class) | DummyClassifier | ✅ |
-    | 🔢 Naive Bayes | MultinomialNB | ⚠️ Needs vectorizer |
+    | 🔢 Naive Bayes | MultinomialNB | ✅ |
     | ⚡ Support Vector Machine | LinearSVC Pipeline | ✅ |
-    | 🌳 Decision Tree | DecisionTreeClassifier | ⚠️ Needs vectorizer |
-    | 🌲 Random Forest | RandomForestClassifier | ⚠️ Needs vectorizer |
+    | 🌳 Decision Tree | DecisionTreeClassifier | ✅ |
+    | 🌲 Random Forest | RandomForestClassifier | ✅ |
 
-    > **Note:** Naive Bayes, Decision Tree, and Random Forest models were trained with
-    > separate TF-IDF vectorizers that were not saved alongside the model files.
-    > Live classification is available for **Baseline** and **SVM** models.
-    > All five models are included in the **Dashboard** performance comparison.
+    > **Note:** Naive Bayes, Decision Tree, and Random Forest were originally trained with
+    > separate TF-IDF vectorizers. The app now reconstructs those vectorizers from the
+    > preprocessed complaint dataset, enabling live predictions for all five models.
 
     ---
     **How to use:** Use the **sidebar** on the left to navigate between pages.
