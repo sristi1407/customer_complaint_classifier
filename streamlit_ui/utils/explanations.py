@@ -39,6 +39,21 @@ MODEL_EXPLANATIONS = {
             "Slower prediction time than simpler models; less directly interpretable."
         ),
     },
+    "logistic_regression": {
+        "icon": "📉",
+        "how": (
+            "Learns linear decision boundaries over TF-IDF text features and "
+            "estimates class probabilities for each complaint category."
+        ),
+        "strength": (
+            "Strong text-classification baseline that is fast, stable, and "
+            "provides calibrated probabilities."
+        ),
+        "weakness": (
+            "Assumes mostly linear relationships in feature space and may miss "
+            "some nonlinear patterns."
+        ),
+    },
     "decision_tree": {
         "icon": "🌳",
         "how": (

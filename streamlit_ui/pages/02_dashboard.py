@@ -219,6 +219,7 @@ def run():
         "baseline": "📊",
         "naive_bayes": "🔢",
         "svm": "⚡",
+        "logistic_regression": "📉",
         "decision_tree": "🌳",
         "random_forest": "🌲",
     }

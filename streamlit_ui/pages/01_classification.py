@@ -89,7 +89,7 @@ def _predict_model(key: str, model, text: str, vectorizers: dict | None = None) 
         if key == "baseline":
             pred, proba = predict_baseline(model, text)
             classes = list(model.classes_)
-        elif key == "svm":
+        elif key in {"svm", "logistic_regression"}:
             pred, proba = predict_svm_pipeline(model, text)
             classes = list(model.classes_)
         elif key in MODELS_NEED_VECTORIZER:
@@ -222,6 +222,12 @@ def _render_model_card(key: str, model, results: dict):
                     f"The SVM found that your complaint text most closely matches the "
                     f"**{pred}** category based on TF-IDF features.  "
                     f"Confidence is **{conf:.1%}** ({label})."
+                )
+            elif key == "logistic_regression":
+                st.markdown(
+                    f"Logistic Regression estimated class probabilities from your "
+                    f"TF-IDF complaint features and selected **{pred}** as the "
+                    f"most likely category. Confidence is **{conf:.1%}** ({label})."
                 )
 
 

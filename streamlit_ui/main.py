@@ -43,7 +43,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.info(
         "#### 📝 Classification\n\n"
-        "Enter a customer complaint and get instant predictions from all 5 ML models.\n\n"
+        "Enter a customer complaint and get instant predictions from all 6 ML models.\n\n"
         "→ **Use the sidebar to navigate**"
     )
 with col2:
@@ -69,12 +69,13 @@ st.markdown(
     | 📊 Baseline (Majority Class) | DummyClassifier | ✅ |
     | 🔢 Naive Bayes | MultinomialNB | ✅ |
     | ⚡ Support Vector Machine | LinearSVC Pipeline | ✅ |
+    | 📉 Logistic Regression | LogisticRegression Pipeline | ✅ |
     | 🌳 Decision Tree | DecisionTreeClassifier | ✅ |
     | 🌲 Random Forest | RandomForestClassifier | ✅ |
 
     > **Note:** Naive Bayes, Decision Tree, and Random Forest were originally trained with
     > separate TF-IDF vectorizers. The app now reconstructs those vectorizers from the
-    > preprocessed complaint dataset, enabling live predictions for all five models.
+    > preprocessed complaint dataset, enabling live predictions for all six models.
 
     ---
     **How to use:** Use the **sidebar** on the left to navigate between pages.

@@ -11,6 +11,9 @@ MODEL_PATHS = {
     "baseline": os.path.join(_BASE_DIR, "models", "baseline", "baseline_model.joblib"),
     "naive_bayes": os.path.join(_BASE_DIR, "models", "naivebayes", "naivebayes_model.joblib"),
     "svm": os.path.join(_BASE_DIR, "models", "SVM", "svm_pipeline.joblib"),
+    "logistic_regression": os.path.join(
+        _BASE_DIR, "models", "LogisticRegression", "logistic_regression_model.joblib"
+    ),
     "decision_tree": os.path.join(_BASE_DIR, "models", "DecisionTree", "decision_tree_model.joblib"),
     "random_forest": os.path.join(_BASE_DIR, "models", "RandomForestRegressor", "random_forest_model.joblib"),
 }
@@ -21,6 +24,7 @@ RESULTS_PATHS = {
     "dt_report": os.path.join(_BASE_DIR, "results", "Sristi", "decision_tree_evaluation_report.txt"),
     "rf_report": os.path.join(_BASE_DIR, "results", "Sristi", "random_forest_evaluation_report.txt"),
     "svm_report": os.path.join(_BASE_DIR, "results", "Dev", "svm_classification_report.txt"),
+    "lr_report": os.path.join(_BASE_DIR, "results", "Dev", "logistic_regression_classification_report.txt"),
 }
 
 PREPROCESSED_DATA_PATH = os.path.join(
@@ -36,6 +40,7 @@ MODELS = {
     "baseline": "Baseline (Majority Class)",
     "naive_bayes": "Naive Bayes",
     "svm": "Support Vector Machine (SVM)",
+    "logistic_regression": "Logistic Regression",
     "decision_tree": "Decision Tree",
     "random_forest": "Random Forest",
 }
@@ -45,6 +50,7 @@ MODEL_HAS_PIPELINE = {
     "baseline": False,   # DummyClassifier — no vectorization needed
     "naive_bayes": False,  # MultinomialNB — vectorizer NOT saved separately
     "svm": True,          # Pipeline(TfidfVectorizer + LinearSVC)
+    "logistic_regression": True,  # Pipeline(TfidfVectorizer + LogisticRegression)
     "decision_tree": False,  # DecisionTreeClassifier — vectorizer NOT saved separately
     "random_forest": False,  # RandomForestClassifier — vectorizer NOT saved separately
 }

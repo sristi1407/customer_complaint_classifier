@@ -130,6 +130,30 @@ def load_all_metrics() -> pd.DataFrame:
     # ------------------------------------------------------------------
     # 3. Sristi's text reports — Decision Tree & Random Forest
     # ------------------------------------------------------------------
+    lr_report_path = RESULTS_PATHS["lr_report"]
+    if os.path.exists(lr_report_path):
+        try:
+            with open(lr_report_path, "r") as fh:
+                lr_text = fh.read()
+            lr_accuracy = _parse_accuracy_from_report(lr_text)
+            lr_wm = _parse_weighted_metrics(lr_text)
+            if lr_accuracy is not None:
+                rows.append(
+                    {
+                        "Model": "Logistic Regression",
+                        "Model Key": "logistic_regression",
+                        "Accuracy": lr_accuracy,
+                        "Precision": lr_wm.get("precision", lr_accuracy),
+                        "Recall": lr_wm.get("recall", lr_accuracy),
+                        "F1-Score": lr_wm.get("f1", lr_accuracy),
+                    }
+                )
+        except Exception:  # noqa: BLE001
+            pass
+
+    # ------------------------------------------------------------------
+    # 4. Sristi's text reports — Decision Tree & Random Forest
+    # ------------------------------------------------------------------
     for key, label in [("dt_report", "Decision Tree"), ("rf_report", "Random Forest")]:
         report_path = RESULTS_PATHS[key]
         if os.path.exists(report_path):
