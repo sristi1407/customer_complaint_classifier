@@ -6,8 +6,6 @@
 * Kunal Ghanwat – [ghanwat.k@northeastern.edu]
 * Dev Patel – [patel.d@northeastern.edu]
 
----
-
 ##  Objectives and Significance
 
 This project focuses on classifying consumer complaints into product categories using machine learning and natural language processing (NLP).
@@ -105,7 +103,6 @@ We used:
 
 Train-test split: **80% training / 20% testing**
 
----
 
 ##  Results
 
@@ -150,7 +147,6 @@ customer_complaint_classifier/
 └── README.md
 ```
 
----
 
 ## Conclusion
 
@@ -177,7 +173,6 @@ We also learned that:
   * Transformers
 * Improve performance on rare categories
 
----
 
 ##  References
 
