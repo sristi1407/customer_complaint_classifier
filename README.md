@@ -118,15 +118,16 @@ Users can:
 
 
 ## Project Structure
+```
 customer_complaint_classifier/
 │
-├── data/ # Dataset files
-├── notebooks/ # Model training notebooks
-├── models/ # Saved models
-├── results/ # Outputs and metrics
-├── streamlit_ui/ # UI application
+├── data/                    # Dataset files
+├── notebooks/               # Model training notebooks
+├── models/                  # Saved models
+├── results/                 # Outputs and metrics
+├── streamlit_ui/            # UI application
 └── README.md
-
+```
 
 ## Conclusion
 
