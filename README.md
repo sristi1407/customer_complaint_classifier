@@ -137,12 +137,46 @@ We built a simple **Streamlit UI**:
 ```
 customer_complaint_classifier/
 │
-├── data/                  # Dataset files
-├── notebooks/             # Model training notebooks
-├── models/                # Saved trained models
-├── results/               # Outputs and evaluation metrics
-├── streamlit_ui/          # Streamlit UI
-│   └── app.py
+├── data/
+│ ├── plots/ # Visualizations (confusion matrix, predictions)
+│ ├── preprocess_data/ # Cleaned datasets
+│ ├── raw_data/ # Raw dataset
+│ └── complaints_cleaned.csv
+│
+├── models/
+│ ├── baseline/
+│ │ └── baseline_model.joblib
+│ ├── DecisionTree/
+│ │ └── decision_tree_model.joblib
+│ ├── LogisticRegression/
+│ │ └── logistic_regression_model.joblib
+│ ├── naivebayes/
+│ │ └── naivebayes_model.joblib
+│ ├── RandomForestRegressor/
+│ │ └── random_forest_model.joblib
+│ └── SVM/
+│
+├── notebooks/ # Model training notebooks
+│ ├── decision_tree.ipynb
+│ ├── load_data.ipynb
+│ ├── LogisticRegression.ipynb
+│ ├── preprocessing.ipynb
+│ ├── random_forest.ipynb
+│ ├── SVM.ipynb
+│ └── naivebayes.ipynb
+│
+├── results/ # Model outputs (per team member)
+│ ├── Dev/
+│ ├── Kunal/
+│ └── Sristi/
+│
+├── streamlit_ui/ # Streamlit UI application
+│ ├── main.py
+│ ├── requirements.txt
+│ ├── assets/
+│ ├── pages/
+│ ├── utils/
+│ └── .streamlit/
 │
 └── README.md
 ```
