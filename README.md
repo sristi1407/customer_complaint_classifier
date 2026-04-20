@@ -49,6 +49,7 @@ More advanced approaches include **deep learning models (BERT, LSTM)**.
 ### Dataset
 
 * Source: Consumer Complaint Database (Kaggle)
+* URL: https://www.kaggle.com/datasets/selener/consumer-complaint-database
 * Records: ~300,000+ complaints
 * Input:
 
@@ -211,16 +212,18 @@ We also learned that:
 ##  References
 
 * Scikit-learn Documentation: https://scikit-learn.org
-* Kaggle Dataset: Consumer Complaint Database
+* Kaggle Dataset (Consumer Complaint Database): https://www.kaggle.com/datasets/selener/consumer-complaint-database
 * TF-IDF: https://en.wikipedia.org/wiki/Tf–idf
 * Streamlit: https://streamlit.io
 
 ### AI Assistance
 
-We used AI tools (ChatGPT) for:
-- Assisting in designing the Streamlit UI form
+We used AI tools, including **GitHub Copilot Agent**, for:
+- Assisting in creating and refining the Streamlit UI
+- Improving UI layout, page structure, and model result presentation
 
 Example prompts used:
 - "Help design a Streamlit UI for text classification"
+- "Use Copilot Agent to improve page structure and model result display in Streamlit"
 
 
